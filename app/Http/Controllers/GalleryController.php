@@ -23,8 +23,11 @@ class GalleryController extends Controller
    
     public function generateImage(Request $request)
     {
-        $prompt = $request->input('prompt');
+       
+        $prompt = $request->input('image');
+       
         $imageUrl = $this->dalleApiService->generateImage($prompt);
-        return view('image', ['imageUrl' => $imageUrl]);
+        return $imageUrl;
+        // return view('image', ['imageUrl' => $imageUrl]);
     }
 }

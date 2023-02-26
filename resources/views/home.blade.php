@@ -20,9 +20,11 @@
 
 
                     <div class="gallery_box">
-                        <div class="gallery__item">
+                      
+                        <a class="gallery__item" href="google">
                             <h2>Gallery Name</h2>
-                        </div>
+                        </a>
+                     
                         <div class="gallery__item">
                             <h2>Gallery Name</h2>
                         </div>

@@ -20,7 +20,7 @@
 
 .gallery__item{
   
-    background-image: url('https://www.w3schools.com/w3images/nature.jpg');
+    background-image: url('https://oaidalleapiprodscus.blob.core.windows.net/private/org-1gUtPfjSwG9DQk7hyUWhTWsJ/user-3qwUEI1cS0TXw0A8JUXoBeIa/img-CtJ9IS7MT9NPLEjCxumdfS60.png?st=2023-02-26T13%3A09%3A29Z&se=2023-02-26T15%3A09%3A29Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-02-26T12%3A04%3A23Z&ske=2023-02-27T12%3A04%3A23Z&sks=b&skv=2021-08-06&sig=F2i69ACwp14/4ZONJPK3bErSSLCJSaGYLtqmvxZujD0%3D');
     display: flex;
     min-width: 25%;
     min-height: 200px;

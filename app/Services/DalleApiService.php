@@ -13,7 +13,7 @@ class DalleApiService
         $this->client = new Client([
             'base_uri' => 'https://api.openai.com/v1/',
             'headers' => [
-                'Authorization' => 'Bearer ' . env('DALLE_API_KEY'),
+                'Authorization' => 'Bearer ' . env('DALLE_API_KEY'), //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
                 'Content-Type' => 'application/json',
             ],
         ]);

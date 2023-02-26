@@ -21,5 +21,5 @@ Auth::routes();
 
 Route::get('create-gallery',[App\Http\Controllers\GalleryController::class,'create'])->name('create.gallery');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('create-image',[App\Http\Controllers\GalleryController::class,'generateImaged'])->name('create-image');
+// Route::get('create-image',[App\Http\Controllers\GalleryController::class,'generateImaged'])->name('create-image');
 Route::post('create-image-submit',[App\Http\Controllers\GalleryController::class,'generateImage'])->name('create-image');
