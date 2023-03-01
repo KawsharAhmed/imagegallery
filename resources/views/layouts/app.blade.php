@@ -12,15 +12,16 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
+   
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <style>
 
 
 .gallery__item{
   
-    background-image: url('https://oaidalleapiprodscus.blob.core.windows.net/private/org-1gUtPfjSwG9DQk7hyUWhTWsJ/user-3qwUEI1cS0TXw0A8JUXoBeIa/img-CtJ9IS7MT9NPLEjCxumdfS60.png?st=2023-02-26T13%3A09%3A29Z&se=2023-02-26T15%3A09%3A29Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-02-26T12%3A04%3A23Z&ske=2023-02-27T12%3A04%3A23Z&sks=b&skv=2021-08-06&sig=F2i69ACwp14/4ZONJPK3bErSSLCJSaGYLtqmvxZujD0%3D');
+    background-image: url('https://oaidalleapiprodscus.blob.core.windows.net/private/org-1gUtPfjSwG9DQk7hyUWhTWsJ/user-3qwUEI1cS0TXw0A8JUXoBeIa/img-NCI56FkXahD3O8gYa0lQveZy.png?st=2023-02-28T20%3A42%3A41Z&se=2023-02-28T22%3A42%3A41Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-02-28T21%3A42%3A10Z&ske=2023-03-01T21%3A42%3A10Z&sks=b&skv=2021-08-06&sig=PVwTUNMK3nubO36WuJFndvUk7DCZWAAW0QtHtb8UCY8%3D');
     display: flex;
     min-width: 25%;
     min-height: 200px;
@@ -144,5 +145,15 @@
             @yield('content')
         </main>
     </div>
+    <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+        <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+        {!! Toastr::message() !!}
+            @if ($errors->any())
+            <script>
+                @foreach ($errors->all() as $error)
+                    toastr.error('{{ $error }}')
+                @endforeach
+            </script>
+        @endif
 </body>
 </html>

@@ -14,41 +14,14 @@
                         </div>
                     @endif
 
-                    
-
-
-
-
                     <div class="gallery_box">
-                      
-                        <a class="gallery__item" href="google">
-                            <h2>Gallery Name</h2>
+        
+                        @foreach ($gallries as $gallery )
+                        <a class="gallery__item" href="google" style="background-image: url({{$gallery->thumbnail}})">
+                            <h2>{{$gallery->name}}</h2>
                         </a>
-                     
-                        <div class="gallery__item">
-                            <h2>Gallery Name</h2>
-                        </div>
-                        <div class="gallery__item">
-                            <h2>Gallery Name</h2>
-                        </div>
-                        <div class="gallery__item">
-                            <h2>Gallery Name</h2>
-                        </div>
-                        <div class="gallery__item">
-                            <h2>Gallery Name</h2>
-                        </div>
-                        <div class="gallery__item">
-                            <h2>Gallery Name</h2>
-                        </div>
-                        <div class="gallery__item">
-                            <h2>Gallery Name</h2>
-                        </div>
-                        <div class="gallery__item">
-                            <h2>Gallery Name</h2>
-                        </div>
-                        <div class="gallery__item">
-                            <h2>Gallery Name</h2>
-                        </div>
+                        @endforeach
+
                     </div>
                 </div>
             </div>
