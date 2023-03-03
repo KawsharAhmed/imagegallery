@@ -19,12 +19,21 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('create-gallery',[App\Http\Controllers\GalleryController::class,'create'])->name('create.gallery');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// Route::get('create-image',[App\Http\Controllers\GalleryController::class,'generateImaged'])->name('create-image');
+
+//show album create form
+Route::get('create-album',[App\Http\Controllers\AlbumController::class,'create'])->name('create.album');
+
 //Handle gallery Store  Request
-Route::post('create-gallery',[App\Http\Controllers\GalleryController::class,'createGallery'])->name('store.gallery');
-//Handle gallery edit request 
-Route::get('edit-gallery/{id}',[App\Http\Controllers\GalleryController::class,'editGallery'])->name('edit.gallery');
-Route::post('update-gallery/{id}',[App\Http\Controllers\GalleryController::class,'updateGallery'])->name('update.gallery');
+Route::post('store-gallery',[App\Http\Controllers\AlbumController::class,'createAlbum'])->name('store.album');
+
+////show album edit form
+Route::get('edit-album/{id}',[App\Http\Controllers\AlbumController::class,'editAlbum'])->name('edit.album');
+
+//Handle gallery update request 
+Route::post('update-album/{id}',[App\Http\Controllers\AlbumController::class,'updateAlbum'])->name('update.album');
+
+//handle gallery delete request 
+Route::delete('delete-album/{id}',[App\Http\Controllers\AlbumController::class,'deleteAlbum'])->name('delete.album');
 

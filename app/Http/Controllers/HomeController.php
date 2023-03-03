@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Album;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,7 +28,7 @@ class HomeController extends Controller
     {
 
        $user_id =  Auth::user()->id;
-        $gallries = Gallery::where('user_id',$user_id)->get();
+        $gallries = Album::where('user_id',$user_id)->get();
         return view('home',compact('gallries'));
     }
 }
