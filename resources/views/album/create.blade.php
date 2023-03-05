@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card ">
-                <div class="card-header">Create Album</div>
+                <div class="card-header">Album</div>
         <div class="row p-3">
             <div class="col-md-8">
                 <h3>Album List</h3>

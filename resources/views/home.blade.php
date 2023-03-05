@@ -17,7 +17,7 @@
                     <div class="gallery_box">
         
                         @foreach ($gallries as $gallery )
-                        <a class="gallery__item" href="google" style="background-image: url({{$gallery->thumbnail}})">
+                        <a class="gallery__item" href="{{route('show.image',$gallery->id)}}" style="background-image: url({{$gallery->thumbnail}})">
                             <h2>{{$gallery->name}}</h2>
                         </a>
                         @endforeach
