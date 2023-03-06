@@ -25,7 +25,7 @@ class ImageRequest extends FormRequest
             //
             'album_id'=>'required',
             'title'=>'required|max:255',
-            'files'=>'required'
+            'image'=>'required'
         ];
     }
 }

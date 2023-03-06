@@ -14,10 +14,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreGalleryRequest;
 use App\Models\Image;
+use App\Traits\UploadTrait;
 
 class GalleryController extends Controller
 {
-    //
+    // 
+    
+    use UploadTrait;
 
         public function index($id){
             $album = Album::find($id);
@@ -44,24 +47,37 @@ class GalleryController extends Controller
             try{
                 
                
+                //Create new image
                 $imageOb = new Image();
                 $imageOb->title = $request->title;
                 $imageOb->album_id = $request->album_id;
 
-                if($request->hasfile('files')){
-                    $images = $request->file('files');
-                    foreach ($images as $index=>$image) {
-                    $imageName = uniqid().'.'.$image->getClientOriginalExtension();
-                    $path = 'public/images/'.$imageName;
-                    Storage::put($path,file_get_contents($image));
-                    $url =  Storage::url($path);
+                //check image has been uploaded
+
+                if($request->has('image')){
+
+                    //get iamge file
+                    $image = $request->file('image');
                     
-                    $imageOb->image =  $url;
-                    $imageOb->save();
+                    //Make a image name based on user name and current  timestamp
+                    $name = Str::slug($request->title).'_'.time();
+
+                    //Define a folder path
+                    $folder = '/images/album/';
+
+                    //Make a file path image sill be stored;
+
+                    $filepath = $folder .$name.'.'. $image->getClientOriginalExtension();
+
+                    //Upload Image 
+                    $this->uploadFile($image,$folder,'public',$name);
+
+                    //Set  image path in database to filePath
+                    $imageOb->image = Storage::url($filepath);
+
                 }
-              
-                  }
-                
+                $imageOb->save();
+
                 DB::commit();
                 Toastr::success('success', 'Image  Upload successfully', ["positionClass" => "toast-top-right"]);
                 return redirect()->back();
@@ -74,7 +90,21 @@ class GalleryController extends Controller
             
         }
 
+        //Delete image
+
+        public function deleteImage($id){
         
+            $image = Image::find($id);
+            
+        if(Storage::delete($image->image)) {
+            $image->delete();
+            Toastr::success('Success', 'Image Delete Successfully', ["positionClass" => "toast-top-right"]);
+        }else{
+            Toastr::warning('Error', 'Image does not delete',  ["positionClass" => "toast-top-right"]);
+        }
+            
+            return redirect()->route('create.image');
+        }
 
    
 }

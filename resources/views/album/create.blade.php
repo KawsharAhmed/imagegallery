@@ -31,7 +31,7 @@
                                 <div class="d-flex align-items-center  ">
                                 <a href="{{url('edit-album',$album->id)}}" class="btn btn-primary me-1">Edit</a>
                                
-                                <form id="delete-gallery-{{ $album->id }}" action="{{route('delete.album',$album->id)}}" method="post">
+                                <form id="delete-gallery-{{ $album->id }}" action="{{url('delete-album',$album->id)}}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <a href="#" class="btn btn-danger show_confirm" >Delete</a>

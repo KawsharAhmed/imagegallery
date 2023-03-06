@@ -27,7 +27,7 @@
                         <td > <img src="{{asset($image->image)}}" alt="gallery image" style="width:60px"/></td>
                         <td>
                             <div class="d-flex align-items-center  ">
-                                <a href="{{url('edit-image-upload',$image->id)}}" class="btn btn-primary me-1">Edit</a>
+                                {{-- <a href="{{url('edit-image-upload',$image->id)}}" class="btn btn-primary me-1">Edit</a> --}}
                                
                                 <form id="delete-gallery-{{ $image->id }}" action="{{route('delete.image',$image->id)}}" method="post">
                                     @csrf
@@ -61,7 +61,7 @@
                 </select>
             </div>
             <div class="mb-3 mt-3">
-                <input  type="file" name="files[]"   class="form-control  @error('name') is-invalid @enderror" placeholder="Enter Album Name" multiple>
+                <input  type="file" name="image"   class="form-control  @error('name') is-invalid @enderror" placeholder="Enter Album Name">
             </div>
         <button type="submit" class="btn btn-primary">Submit</button>
         </form>

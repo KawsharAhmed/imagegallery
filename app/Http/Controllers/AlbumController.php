@@ -106,7 +106,7 @@ class AlbumController extends Controller
         $filename = Str::slug($album_name).'_'.uniqid().'.'.'png';
     
         // specify  the image path
-        $path = 'public/images/thumbnails/'.$filename;
+        $path = '/images/thumbnails/'.$filename;
 
         //Store the image in the storage/public/images/thumbnails/ directory
          Storage::disk('local')->put($path,file_get_contents($imageUrl));

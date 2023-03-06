@@ -43,4 +43,4 @@ Route::delete('delete-album/{id}',[App\Http\Controllers\AlbumController::class,'
 Route::get('single/gallery/{id}',[App\Http\Controllers\GalleryController::class,'index'])->name('show.image');
 Route::get('create-image',[App\Http\Controllers\GalleryController::class,'createImage'])->name('create.image');
 Route::post('upload-image',[App\Http\Controllers\GalleryController::class,'uploadImage'])->name('store.image');
-Route::delete('delete-album/{id}',[App\Http\Controllers\AlbumController::class,'deleteAlbum'])->name('delete.image');
+Route::delete('delete-image/{id}',[App\Http\Controllers\GalleryController::class,'deleteImage'])->name('delete.image');
